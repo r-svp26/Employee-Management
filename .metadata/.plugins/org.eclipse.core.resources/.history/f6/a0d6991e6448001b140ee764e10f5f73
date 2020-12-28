@@ -1,0 +1,11 @@
+package org.jsp.employee.dao;
+
+public class EmployeeDAO {
+
+	public static int save() {
+		return 0;
+	}
+	
+	
+
+}

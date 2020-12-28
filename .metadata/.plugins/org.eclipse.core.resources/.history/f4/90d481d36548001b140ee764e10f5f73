@@ -1,0 +1,76 @@
+package org.jsp.employee.dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import org.jsp.employee.entity.Employee;
+
+public class EmployeeDAO {
+
+	public static Connection getConnection() {
+		Connection conn = null;
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306?user=root&password=admin/jspiders");
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+		return conn;
+	}
+
+	public static int save(Employee emp) {
+		int status = 0;
+		try {
+			Connection conn = EmployeeDAO.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(
+					"insert into employee (id,loginname,password,username,Country) values(?,?,?,?,?)");
+			pstmt.setInt(1, emp.getId());
+			pstmt.setString(2, emp.getName());
+			pstmt.setString(3, emp.getPassword());
+			pstmt.setString(4, emp.getUsername());
+			pstmt.setString(5, emp.getCountry());
+			status = pstmt.executeUpdate();
+			conn.close();
+		} catch (Exception ex) {
+			System.out.println(ex);
+		}
+		return status;
+	}
+
+	public static int update(Employee emp) {
+		int status = 0;
+		try {
+			Connection con = EmployeeDAO.getConnection();
+			PreparedStatement pstmt = con
+					.prepareStatement("update employee set loginname=?,password=?,username=?,country=? where id=?");
+			pstmt.setString(1, emp.getName());
+			pstmt.setString(2, emp.getPassword());
+			pstmt.setString(3, emp.getUsername());
+			pstmt.setString(4, emp.getCountry());
+			pstmt.setInt(5, emp.getId());
+			status = pstmt.executeUpdate();
+			con.close();
+
+		} catch (Exception ex) {
+			System.out.println(ex);
+		}
+		return status;
+	}
+
+	public static int delete(int id) {
+		int status = 0;
+		try {
+			Connection con = EmployeeDAO.getConnection();
+			PreparedStatement pstmt = con.prepareStatement("delete from employee where id=?");
+			pstmt.setInt(1, id);
+			status = pstmt.executeUpdate();
+			con.close();
+		} catch (Exception ex) {
+			System.out.println(ex);
+		}
+		return status;
+	}
+
+}

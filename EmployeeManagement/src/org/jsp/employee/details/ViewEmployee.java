@@ -1,0 +1,48 @@
+package org.jsp.employee.details;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.jsp.employee.dao.EmployeeDAO;
+import org.jsp.employee.entity.Employee;
+
+@WebServlet("/ViewEmployee")
+public class ViewEmployee extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+		resp.setContentType("text/html");
+		PrintWriter out = resp.getWriter();
+
+		out.println("<body bgcolor='#6495ed'><a href='index.html'>Add New Employee</a>");
+		out.println("<h1>JSPiders Employee List</h1>");
+
+		List<Employee> lst = EmployeeDAO.getAllEmployee();
+
+		out.println("<table border='1' width='100%'>");
+
+		out.println(
+				"<tr><th>Id</th><th>loginName</th><th>Password</th><th>UserName</th><th>Country</th><th>Edit</th><th>Delete</th></tr>");
+
+		for (Employee emp : lst) {
+			out.println("<tr><td>" + emp.getId() + "</td><td>" + emp.getName() + "</td><td>" + emp.getPassword()
+					+ "</td><td>" + emp.getUsername() + "</td><td>" + emp.getCountry()
+					+ "</td><td><a href='UpdateEmployee?id=" + emp.getId()
+					+ "'>edit</a></td><td><a href='DeleteEmployee?id=" + emp.getId() + "'>delete</a></td></tr>");
+
+		}
+		out.print("</table>");
+		out.print("</body>");
+		out.close();
+
+	}
+
+}

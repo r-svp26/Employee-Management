@@ -1,0 +1,34 @@
+package org.jsp.employee.details;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.jsp.employee.dao.EmployeeDAO;
+
+
+@WebServlet("/DeleteEmployee")
+public class DeleteEmployee extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		String sid=req.getParameter("id");
+		int id=Integer.parseInt(sid);
+		@SuppressWarnings("unused")
+		int count=EmployeeDAO.delete(id);
+		
+		PrintWriter out=resp.getWriter();
+		out.println("<html><body bgcolor='#6495ed'>"+"<h1>Record successfully deleted </h1>"+"<form action='ViewEmployee' method='post'>"+"<input type='submit' value='back'></body></html>");
+		out.flush();
+		out.close();
+		
+	}
+
+}

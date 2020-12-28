@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Register here</title>
+<link rel="stylesheet" href="signup.css">
+</head>
+<body>
+	<form action="AddEmployee" method="post">
+		<h1>JSpiders Employee Registration</h1>
+		<table>
+			<tr>
+				<td>User Name:</td>
+				<td><input type="text" name="name" placeholder="User Name"></td>
+			</tr>
+			<tr>
+				<td>Login Name:</td>
+				<td><input type="text" name="email" placeholder="Email ID"></td>
+			</tr>
+			<tr>
+				<td>Password:</td>
+				<td><input type="password" name="password"
+					placeholder="Enter Password"></td>
+			</tr>
+			<tr>
+				<td>Employee Id:</td>
+				<td><input type="text" name="id" placeholder="Enter ID"></td>
+			</tr>
+			<tr>
+				<td>Country:</td>
+				<td><select name="country" style="width: 174px;">
+						<option>Select Country</option>
+						<option>India</option>
+						<option>USA</option>
+						<option>UK</option>
+						<option>Other</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td colspan="3"><input type="submit" value="Sign Up" /></td>
+			</tr>
+		</table>
+	</form>
+
+	<form action="index.html" method="post">
+		<input type="submit" value="Home">
+	</form>
+</body>
+</html>

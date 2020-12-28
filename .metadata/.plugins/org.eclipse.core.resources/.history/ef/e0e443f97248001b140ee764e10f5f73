@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Sinup Page</title>
+<link rel="stylesheet" type="text/css" href="Sinup.css">
+</head>
+<body>
+	<form action="SaveServlet" method="post">
+        <h1>Awzpact Employee registration</h1>
+<table>
+    <tr>
+        <td>UserName:</td><td><input type="text" name="un" placeholder="enter username"></td>
+    </tr>
+    <tr>
+        <td>LoginName:</td><td><input type="text" name="name" placeholder="enter name"></td>
+    </tr>
+    <tr>
+        <td>Password:</td><td><input type="password" name="password" placeholder="enter password"></td>
+    </tr>
+    <tr>
+        <td>Id:</td><td><input type="text" name="id" placeholder="enter id"></td>
+    </tr>
+    <tr >
+        <td>Country:</td><td>
+            <select name="country" style="width: 174px;">
+            	<option >Select Country</option>
+                <option >India</option>
+                <option >USA</option>
+                <option >UK</option>
+                <option >Other</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2"><input type="submit" value="Save Employee"/></td>
+    </tr>
+</table>
+</form>
+<form action="login.html">
+            <table style="height:20px">
+                <tr>
+                    <td>
+                        <input type="submit" value="Sign In" >
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+</body>
+</html>

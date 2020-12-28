@@ -1,0 +1,49 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	background-color: rgb(211, 211, 211);
+}
+
+form {
+	background-color: #6495ed;
+	width: 40%;
+	height: 60%;
+	text-align: center;
+	padding: 50px;
+	align-items: center;
+	border-radius: 15px 15px 15px 15px;
+	font-size: medium;
+	font-weight: 400;
+}
+
+input[type=text] {
+	border-radius: 5px;
+	margin-top: 5px;
+	padding: 3px;
+}
+
+input[type=password] {
+	border-radius: 5px;
+	margin-top: 5px;
+	padding: 3px;
+}
+
+select {
+	border-radius: 5px;
+	margin-top: 5px;
+	padding: 3px;
+}
+
+input[type=submit] {
+	border-radius: 5px;
+	border: 1px;
+	width: 70px;
+	height: 25px;
+	background: green;
+	text-align: center;
+	justify-items: center;
+}
+
+h1 {
+	text-align: initial;
+}
